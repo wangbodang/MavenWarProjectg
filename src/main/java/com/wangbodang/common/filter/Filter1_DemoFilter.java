@@ -23,6 +23,7 @@ public class Filter1_DemoFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		System.out.println("--->demoFiltere");
+		System.out.println("--->这行是从idea添加的!!!!");
 		chain.doFilter(request, response);
 	}
 
