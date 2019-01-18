@@ -10,7 +10,7 @@
 	<h3>Error Page</h3>
 	<hr/>
 	<div>
-		
+		${errorMsg }
 	</div>
 </body>
 </html>

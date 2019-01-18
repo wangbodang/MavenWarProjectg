@@ -35,9 +35,13 @@ public class Filter0_LoginFilter implements Filter {
 			//chain.doFilter(request, response);
 			//return;
 		}		
-		if("login".equals(uri)) {
-			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+		if("login".equals(uri) || "confirm".equals(uri) ) {
+			//request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+			request.setAttribute("errorMsg", "未登陆或密码错误");
 			chain.doFilter(request, response);
+		}else if("error".equals(uri)){
+			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+			//chain.doFilter(request, response);
 		}else {
 			boolean login = false;
 			Cookie[] cookies = httpReq.getCookies();

@@ -11,12 +11,24 @@
 	<h3>Login</h3>
 	<hr/>
 	<div>
-		<form method="post" action="/login">
+		<form method="post" action="confirm">
 			<table style="width:30%; margin-top:30px; margin-left:30px;">
 				<tr>
-					<td class="leftTd"><span>姓名:</span></td>
+					<td class="leftTd"><span>username:</span></td>
 					<td class="rightTd">
 						<input type="text" id="username" name="username" />
+					</td>
+				</tr>
+				<tr>
+					<td class="leftTd"><span>password:</span></td>
+					<td class="rightTd">
+						<input type="text" id="password" name="password" />
+					</td>
+				</tr>
+				<tr>	
+					<td class="leftTd"></td>
+					<td class="rightTd">
+						<input type="submit" value="Submit"/>
 					</td>
 				</tr>
 			</table>
