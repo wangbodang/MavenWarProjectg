@@ -1,6 +1,12 @@
 package com.wangbodang.demo.controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,7 +44,10 @@ public class MainControllerServlet extends HttpServlet {
 			}
 			
 			
-			if(confirm) {				
+			if(confirm) {
+				//把文本赋给request
+				setTextFromRes(req);
+				
 				dispatcherUri = "/WEB-INF/jsp/index.jsp";				
 			}else {
 				System.out.println("->帐号密码错误");
@@ -47,7 +56,25 @@ public class MainControllerServlet extends HttpServlet {
 			}
 			
 		}  		
-		req.getRequestDispatcher(dispatcherUri).forward(req, res);
+		req.getRequestDispatcher(dispatcherUri).forward(req, res);		
+	}
+
+	private void setTextFromRes(HttpServletRequest req) {
+		InputStream is = this.getClass().getClassLoader().getResourceAsStream("conf/test.txt");
+		try {
+			InputStreamReader isr = new InputStreamReader(is, "utf-8");
+			BufferedReader br = new BufferedReader(isr);
+			List<String> list = new ArrayList<String>();
+			String line = null;
+			while((line = br.readLine())!=null) {
+				list.add(line);
+			}
+			req.setAttribute("textList", list);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 	}

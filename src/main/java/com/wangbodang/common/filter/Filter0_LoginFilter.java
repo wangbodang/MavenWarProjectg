@@ -42,6 +42,8 @@ public class Filter0_LoginFilter implements Filter {
 		}else if("error".equals(uri)){
 			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 			//chain.doFilter(request, response);
+		}else if(fullUri.endsWith(".css") || fullUri.endsWith(".js") || fullUri.endsWith(".jpg")){
+			chain.doFilter(request, response);
 		}else {
 			boolean login = false;
 			Cookie[] cookies = httpReq.getCookies();

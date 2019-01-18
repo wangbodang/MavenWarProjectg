@@ -26,6 +26,11 @@
 	<hr style="display:block;"/>
 	<p>WELCOME : <span>${userName} </span></p>
 	<p>This page is index page!</p>
+	<p>
+		<c:forEach items="${textList }" var="line">
+			<span>${line }</span><br/>
+		</c:forEach>
+	</p>
 	<div>
 		<table>
 			<tr>
