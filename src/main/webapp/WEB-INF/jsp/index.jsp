@@ -34,7 +34,7 @@
 	<div>
 		<table>
 			<tr>
-				<td>xxx</td>
+				<td><span class="redText">This text should be red!!!</span></td>
 				<td>ttt</td>
 			</tr>
 			<tr>
